@@ -24,15 +24,18 @@ class FriendViewController: UIViewController {
 }
 
 extension FriendViewController: UITableViewDataSource {
-    
+   
+    // sets one section for all rows
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // sets number of rows as count of friended users
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendSystem.system.friendList.count
     }
     
+    // sets one row per object returned from current user's friends index path
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create cell
         var cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? UserCell
@@ -42,9 +45,13 @@ extension FriendViewController: UITableViewDataSource {
         }
         
         // Modify cell
+        // add's button with title remove to de-friend
+        // refers to public struct UIControlState
         cell!.button.setTitle("Remove", for: UIControlState())
+        // sets table row cell to display each user's email
         cell!.emailLabel.text = FriendSystem.system.friendList[indexPath.row].email
-        
+        // calls send request function on user's id
+        // removeFriend def on FriendSystem 125
         cell!.setFunction {
             let id = FriendSystem.system.friendList[indexPath.row].id
             FriendSystem.system.removeFriend(id!)

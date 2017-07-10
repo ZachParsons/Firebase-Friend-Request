@@ -69,7 +69,7 @@ extension UserListViewController: UITableViewDataSource {
         }
         
         // Modify cell
-        // sets table row cell to display user email
+        // sets table row cell to display each user's email
         cell!.emailLabel.text = FriendSystem.system.userList[indexPath.row].email
         
         // calls send request function on user's id
