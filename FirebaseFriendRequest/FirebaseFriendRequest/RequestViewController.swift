@@ -17,6 +17,8 @@ class RequestViewController: UIViewController {
 
         print(FriendSystem.system.requestList)
 
+        // UI updates everytime list changes
+        // addRequestObserver def on FriendSystem 197 
         FriendSystem.system.addRequestObserver {
             print(FriendSystem.system.requestList)
             self.tableView.reloadData()

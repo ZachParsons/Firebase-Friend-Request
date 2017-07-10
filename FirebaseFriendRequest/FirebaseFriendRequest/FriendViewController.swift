@@ -15,6 +15,8 @@ class FriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UI updated everytime list changes
+        // addFriendObserver def on FriendSystem 169
         FriendSystem.system.addFriendObserver {
             self.tableView.reloadData()
         }

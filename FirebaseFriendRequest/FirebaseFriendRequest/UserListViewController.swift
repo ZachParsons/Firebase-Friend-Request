@@ -22,6 +22,8 @@ class UserListViewController: UIViewController {
             self.usernameLabel.text = user.email
         }
         
+        // UI updates everytime list changes
+        // addUserObserver def on FriendSystem 145
         FriendSystem.system.addUserObserver { () in
             self.tableView.reloadData()
         }
@@ -44,7 +46,7 @@ class UserListViewController: UIViewController {
     
 }
 
-// extends class UserListViewController defined above on 11 as inheriting from UITableViewDataSource
+// extends class UserListViewController def above on 11 as inheriting from UITableViewDataSource
 extension UserListViewController: UITableViewDataSource {
     
     // sets one section for all rows
@@ -71,6 +73,7 @@ extension UserListViewController: UITableViewDataSource {
         cell!.emailLabel.text = FriendSystem.system.userList[indexPath.row].email
         
         // calls send request function on user's id
+        // sendRequestToUser def on FriendSystem 120
         cell!.setFunction {
             let id = FriendSystem.system.userList[indexPath.row].id
             FriendSystem.system.sendRequestToUser(id!)
