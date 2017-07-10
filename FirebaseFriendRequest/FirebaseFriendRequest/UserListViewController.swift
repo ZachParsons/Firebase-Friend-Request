@@ -17,6 +17,7 @@ class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // gets the current user's email to display at top
         FriendSystem.system.getCurrentUser { (user) in
             self.usernameLabel.text = user.email
         }
@@ -26,6 +27,7 @@ class UserListViewController: UIViewController {
         }
     }
 
+    // action for tapping logout button
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         FriendSystem.system.logoutAccount()
         
@@ -42,16 +44,20 @@ class UserListViewController: UIViewController {
     
 }
 
+// extends class UserListViewController defined above on 11 as inheriting from UITableViewDataSource
 extension UserListViewController: UITableViewDataSource {
     
+    // sets one section for all rows
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // sets number of rows as count of registered users
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendSystem.system.userList.count
     }
     
+    // sets one row per object returned from users index path
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create cell
         var cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? UserCell
@@ -61,8 +67,10 @@ extension UserListViewController: UITableViewDataSource {
         }
         
         // Modify cell
+        // sets table row cell to display user email
         cell!.emailLabel.text = FriendSystem.system.userList[indexPath.row].email
         
+        // calls send request function on user's id
         cell!.setFunction {
             let id = FriendSystem.system.userList[indexPath.row].id
             FriendSystem.system.sendRequestToUser(id!)
