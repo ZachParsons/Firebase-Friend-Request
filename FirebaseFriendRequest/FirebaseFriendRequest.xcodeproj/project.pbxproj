@@ -249,6 +249,7 @@
 				TargetAttributes = {
 					9F25273D1D304EE20018BBE7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Z9FWA32492;
 						LastSwiftMigration = 0810;
 					};
 					9F2527511D304EE20018BBE7 = {
@@ -523,9 +524,10 @@
 			baseConfigurationReference = 380A528CF7674657183E56CD /* Pods-FirebaseFriendRequest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z9FWA32492;
 				INFOPLIST_FILE = FirebaseFriendRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.FirebaseFriendRequest;
+				PRODUCT_BUNDLE_IDENTIFIER = DBCSealions.FirebaseFriendRequest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -536,9 +538,10 @@
 			baseConfigurationReference = 52987333830C4A630A039A54 /* Pods-FirebaseFriendRequest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z9FWA32492;
 				INFOPLIST_FILE = FirebaseFriendRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.FirebaseFriendRequest;
+				PRODUCT_BUNDLE_IDENTIFIER = DBCSealions.FirebaseFriendRequest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
