@@ -29,14 +29,17 @@ class RequestViewController: UIViewController {
 
 extension RequestViewController: UITableViewDataSource {
     
+    // sets one section for all rows
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // sets number of rows as count of friend requests
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendSystem.system.requestList.count
     }
     
+    // sets one row per object returned from current user's friend requests index path
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create cell
         var cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? UserCell
@@ -46,9 +49,13 @@ extension RequestViewController: UITableViewDataSource {
         }
         
         // Modify cell
+        // add's button with title remove to de-friend
+        // refers to public struct UIControlState
         cell!.button.setTitle("Accept", for: UIControlState())
+        // sets table row cell to display each user's email
         cell!.emailLabel.text = FriendSystem.system.requestList[indexPath.row].email
-        
+        // calls send request function on user's id
+        // acceptFriendRequest def on FriendSystem 131
         cell!.setFunction {
             let id = FriendSystem.system.requestList[indexPath.row].id
             FriendSystem.system.acceptFriendRequest(id!)
